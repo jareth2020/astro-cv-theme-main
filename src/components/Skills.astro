@@ -1,0 +1,110 @@
+---
+const { lists } = Astro.props;
+---
+{lists.map((item) => (
+  <div class="skill-item">
+    {item.icon && <img src={item.icon} alt={item.name} class="skill-icon" />}
+    <div class="skill-content">
+      <div class="skill-header">
+        <p class="skill-name">{item.name}</p>
+        <span class="skill-percentage">{item.percentage}%</span>
+      </div>
+      <div class="progress-container w3-round-xlarge">
+        <div class="progress-bar w3-round-xlarge" style={`width:${item.percentage}%`}>
+          <div class="progress-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+))}
+
+<style>
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease;
+  }
+
+  .skill-item:hover {
+    transform: translateX(5px);
+  }
+
+  .skill-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    padding: 3px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+  }
+
+  .skill-item:hover .skill-icon {
+    transform: scale(1.1);
+  }
+
+  .skill-content {
+    flex: 1;
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .skill-name {
+    margin: 0;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .skill-percentage {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  .progress-container {
+    height: 12px;
+    background-color: rgba(0,0,0,0.05);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    transition: width 1s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progress-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.3),
+      transparent
+    );
+    animation: glow 2s infinite linear;
+  }
+
+  @keyframes glow {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(400%);
+    }
+  }
+</style>

@@ -1,0 +1,58 @@
+---
+const { lists } = Astro.props;
+---
+<div class="w3-container">
+  <div class="tech-grid">
+    {lists.map((item) => (
+      <a href={item.link} class="tech-item" target="_blank" rel="noopener noreferrer">
+        <img src={item.icon} alt={item.name} class="tech-icon" />
+        <p class="tech-name">{item.name}</p>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+
+  .tech-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .tech-icon {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .tech-item:hover .tech-icon {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  .tech-name {
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+</style>

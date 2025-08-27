@@ -1,0 +1,19 @@
+---
+const { icon, text, subtitle } = Astro.props;
+---
+<div class="text-container">
+  <p><i class={`fa ${icon} fa-fw w3-margin-right w3-large w3-text-teal`}></i>{text}</p>
+  {subtitle && <p class="subtitle"><i class="fa fa-fw w3-margin-right w3-large"></i>{subtitle}</p>}
+</div>
+
+<style>
+  .text-container {
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    margin-top: 2px;
+    margin-left: 33px;
+    color: var(--text-secondary);
+    font-size: 0.95em;
+  }
+</style>

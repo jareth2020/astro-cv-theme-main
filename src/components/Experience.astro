@@ -1,0 +1,46 @@
+---
+const { lists } = Astro.props;
+---
+{lists.map((item) => (
+<div class="w3-container experience-item">
+  <h5 class="w3-opacity"><b>{item.experience}</b></h5>
+  <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{item.period}{item.current &&<> - <span class="w3-tag w3-teal w3-round">Current</span></>}</h6>
+  <p>{item.description}</p>
+  {item.technologies && (
+    <div class="tech-tags">
+      {item.technologies.map(tech => (
+        <span class="tech-tag">{tech}</span>
+      ))}
+    </div>
+  )}
+  <hr>
+</div>
+))}
+
+<style>
+  .experience-item {
+    margin-bottom: 20px;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+  }
+
+  .tech-tag {
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .tech-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+</style>

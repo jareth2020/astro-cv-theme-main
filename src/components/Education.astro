@@ -1,0 +1,78 @@
+---
+const { lists } = Astro.props;
+---
+{lists.map((item) => (
+  <div class="w3-container education-item">
+    <div class="education-header">
+      <h5 class="w3-opacity"><b>{item.education}</b></h5>
+      {item.current && <span class="status-badge">Actual</span>}
+    </div>
+    <h6 class="period">
+      <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+      {item.period}
+    </h6>
+    <div class="education-content">
+      <p class="description">{item.description}</p>
+      {item.achievements && (
+        <p class="achievements">{item.achievements}</p>
+      )}
+    </div>
+    <hr>
+  </div>
+))}
+
+<style>
+  .education-item {
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .education-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .status-badge {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+
+  .period {
+    color: var(--primary-color) !important;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .education-content {
+    padding-left: 5px;
+  }
+
+  .description {
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .achievements {
+    color: var(--text-secondary);
+    font-size: 0.95em;
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  hr {
+    margin: 15px 0;
+    border-color: var(--border-color);
+  }
+
+  .education-item:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+  }
+</style>

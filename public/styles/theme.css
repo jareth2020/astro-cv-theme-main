@@ -1,0 +1,195 @@
+/* Modern CV Theme Colors */
+
+:root {
+  /* Primary Colors */
+  --primary-color: #2c698d;  /* Rich blue */
+  --primary-light: #3498db;  /* Light blue */
+  --primary-dark: #1a4461;   /* Dark blue */
+  
+  /* Background Colors */
+  --bg-primary: #f0f5f9;     /* Soft blue-gray background */
+  --bg-secondary: #ffffff;    /* White for cards */
+  --bg-gradient: linear-gradient(135deg, #f0f5f9, #e4eff5);  /* Subtle gradient */
+  --bg-card: #ffffff;        /* Card background */
+  
+  /* Text Colors */
+  --text-primary: #2c3e50;   /* Dark blue-gray */
+  --text-secondary: #576574; /* Medium gray */
+  --text-light: #95a5a6;    /* Light gray */
+  
+  /* Accent Colors */
+  --accent-success: #27ae60; /* Green */
+  --accent-info: #3498db;    /* Blue */
+  --accent-warning: #f1c40f; /* Yellow */
+  
+  /* Border Colors */
+  --border-color: #e9ecef;   /* Light gray border */
+}
+
+/* Apply colors to elements */
+body {
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.w3-container {
+  background-color: transparent;
+}
+
+.w3-content {
+  margin-top: 32px !important;
+}
+
+.w3-card, .w3-card-4 {
+  background-color: var(--bg-card);
+  border: 2px solid rgba(44, 105, 141, 0.1);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.05),
+    inset 0 0 20px rgba(44, 105, 141, 0.03) !important;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.w3-card::before, .w3-card-4::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  opacity: 0.8;
+}
+
+.w3-card:hover, .w3-card-4:hover {
+  transform: translateY(-2px);
+  border-color: rgba(44, 105, 141, 0.2);
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.1),
+    inset 0 0 25px rgba(44, 105, 141, 0.05) !important;
+}
+
+/* Estilos específicos para cada tipo de tarjeta */
+.w3-card-4:nth-of-type(1) {
+  border-left: 4px solid var(--primary-color);
+}
+
+.w3-card-4:nth-of-type(2) {
+  border-left: 4px solid var(--primary-light);
+}
+
+.w3-white {
+  background: linear-gradient(135deg, #ffffff, #f8f9fa) !important;
+}
+
+/* Contenedor interno de las tarjetas */
+.w3-container {
+  padding: 24px !important;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+}
+
+/* Links */
+a {
+  color: var(--primary-light);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Sections */
+.section {
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Cards and panels */
+.w3-card, .w3-panel {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+/* Skills and progress bars */
+.w3-progressbar {
+  background-color: var(--primary-light);
+}
+
+/* Secondary text */
+.w3-text-grey {
+  color: var(--text-secondary) !important;
+}
+
+/* Timeline and experience items */
+.timeline-item {
+  border-left: 2px solid var(--primary-color);
+}
+
+/* Buttons and interactive elements */
+.w3-button {
+  background-color: var(--primary-color);
+  color: white !important;
+}
+
+.w3-button:hover {
+  background-color: var(--primary-dark) !important;
+}
+
+/* Success elements */
+.success {
+  color: var(--accent-success);
+}
+
+/* Info elements */
+.info {
+  color: var(--accent-info);
+}
+
+/* Warning elements */
+.warning {
+  color: var(--accent-warning);
+}
+
+/* Card section styling */
+.w3-margin-bottom {
+  margin-bottom: 32px !important;
+}
+
+.w3-container h5 {
+  position: relative;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.w3-container h5::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(44, 105, 141, 0.1), 
+    rgba(44, 105, 141, 0.05), 
+    transparent);
+  margin: 20px 0;
+}
+
+/* Footer styling */
+footer.w3-container {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color)) !important;
+  margin-top: 40px !important;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
